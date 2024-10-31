@@ -11,7 +11,7 @@ import { useState } from "react";
 
 const navigation = [
     { id: 1, name: "Dashboard", href: "/dashboard" },
-    { id: 2, name: "Orders", href: "/order" },
+    { id: 2, name: "Orders", href: "/orders" },
     { id: 3, name: "Cart Page", href: "/cart" },
     { id: 4, name: "Check Out", href: "/checkout" },
 ];
@@ -58,7 +58,7 @@ const Navbar = () => {
                                     <ul className="py-2">
                                         {
                                             navigation.map((item) => (
-                                                <li key={item.id}>
+                                                <li key={item.id} onClick={() => setIsDropdownOpen(false)}>
                                                     <Link to={item.href} className="block px-4 py-2 text-sm hover:bg-gray-100">
                                                         {item.name}
                                                     </Link>
