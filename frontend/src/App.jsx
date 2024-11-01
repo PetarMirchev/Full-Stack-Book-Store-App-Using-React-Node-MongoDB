@@ -21,3 +21,11 @@ export default App
 
 
 // mdalmamunit427
+
+
+// used:
+
+// https://swiperjs.com/  --> The Most Modern Mobile Touch Slider
+// https://react-icons.github.io/react-icons/   ---> react-icons 
+// https://reactrouter.com/en/main/start/tutorial   --> React-route
+// https://tailwindcss.com/docs/guides/vite   ---> tailwind for styles
