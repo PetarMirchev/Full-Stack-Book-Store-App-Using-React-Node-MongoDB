@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 
@@ -6,6 +6,9 @@ import { FaGoogle } from "react-icons/fa";
 
 
 const Login = () => {
+
+  const [message, setMassage] = useState("");
+
   return (
     <div className='h-[calc(100vh-120px)] flex justify-center items-center'>
       <div className='w-full max-w-sm mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
@@ -24,6 +27,9 @@ const Login = () => {
                 className='shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow'
               />
             </div>
+            { // error message info text 
+              message && <p className='text-red-500 text-xs italic mb-3'>{message}</p>
+            }
             <div>
               <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded focus:outline-none'>Login </button>
             </div>
