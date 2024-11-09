@@ -4,11 +4,16 @@ import { Link } from'react-router-dom';
 
 import { getImgUrl } from '../../utils/getImgUrl'
 
+import { useDispatch } from "react-redux";
+import { addToCart } from '../../redux/features/cart/cartSlice';
+
 const BookCard = ({book}) => {
 
+    const dispatch = useDispatch();
+
     const handleAddToCart = (product) => {
-        //TO DO 
-    }
+        dispatch(addToCart(product)); 
+    };
 
 
   return (
@@ -34,8 +39,8 @@ const BookCard = ({book}) => {
                 <p className="font-medium mb-5">
                     ${book?.newPrice} <span className="line-through font-normal ml-2">$ {book?.oldPrice}</span>
                 </p>
-                <button className="btn-primary px-6 space-x-1 flex items-center gap-1"
-                onClick={() => console.log() } >
+                <button className="bg-primary px-6 space-x-1 flex items-center gap-1"
+                onClick={() => handleAddToCart(book)} >
                     <FiShoppingCart className="" />
                     <span>Add to Cart</span>
                 </button>

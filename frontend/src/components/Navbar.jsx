@@ -6,6 +6,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import avatarImg from "../assets/avatar.png";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 
 
@@ -21,6 +22,10 @@ const navigation = [
 const Navbar = () => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    //call redux hook -- to show 
+    const cartItems = useSelector(state => state.cart.cartItems);
+    // console.log(cartItems); // --> Navbar.jsx:27
+    
 
     const currentUser = false;
 
@@ -82,8 +87,10 @@ const Navbar = () => {
                 </button>
 
                 <Link to="/card" className="bg-primary p-1 sm:px-6 px-2 flex items-center rounded-sm">
-                    <FaCartShopping />
-                    <span className="text-sm font-semibold sm:ml-1">0</span>
+                    <FaCartShopping className=""/>
+                    { //show number of books in  X > 0 or 0
+                      cartItems.length > 0  ?  <span className="text-sm font-semibold sm:ml-1">{cartItems.length}</span>  :  <span className="text-sm font-semibold sm:ml-1">0</span>
+                    }                    
                 </Link>
             </div>
         </nav>
