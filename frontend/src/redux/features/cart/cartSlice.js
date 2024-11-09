@@ -6,12 +6,30 @@ const initialState = {
 }
 
 
-const createSlice = createSlice({
+const cartSlice = createSlice({
     name: 'cart',
     initialState: initialState,
     reducers: {
-
+        addToCart: (state, action) => {
+            const existingItem = state.cartItems.find(item => item._id === action.payload._id);
+            if (!existingItem) {
+                state.cartItems.push(action.payload);
+                alert("Item added successfully");
+            } else {
+                alert("item already exists");
+            }
+        },
+        removeFromCart: (state, action) => {
+            state.cartItems =  state.cartItems.filter(item => item._id !== action.payload._id)
+        },
+        clearCart: (state) => {
+            state.cartItems = []
+        }
     }
-})
+});
 
+
+// export the actions
+export const { addToCart, removeFromCart, clearCart} = cartSlice.actions;
+export default cartSlice.reducer;
 
