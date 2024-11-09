@@ -29,5 +29,6 @@ export default App
 // https://react-icons.github.io/react-icons/   ---> react-icons 
 // https://reactrouter.com/en/main/start/tutorial   --> React-route
 // https://tailwindcss.com/docs/guides/vite   ---> tailwind for styles
-// https://www.react-hook-form.com/   
-// https://redux-toolkit.js.org/introduction/getting-started --
+// https://www.react-hook-form.com/  --> form lib  
+// https://redux-toolkit.js.org/introduction/getting-started -- state
+// https://sweetalert2.github.io/#download   -- alert UI lib for show pop-up messages
