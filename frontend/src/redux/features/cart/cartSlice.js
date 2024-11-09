@@ -10,10 +10,8 @@ const createSlice = createSlice({
     name: 'cart',
     initialState: initialState,
     reducers: {
-        
+
     }
 })
-
-
 
 
