@@ -7,6 +7,7 @@ const CheckoutPage = () => {
 
     const cartItems = useSelector((state) => state.cart.cartItems); 
     const totalPrice = cartItems.reduce((acc, item) => acc + item.newPrice, 0).toFixed(2);
+    const currentUser = true; // TO DO - get user from backend account
 
     const { register, handleSubmit, watch, formState: {errors}, } = useForm();
     
@@ -15,7 +16,24 @@ const CheckoutPage = () => {
     const [isChecked, setIsChecked] = useState(false);
     
     const onSubmit = async (data) => {
-        console.log(data);
+        //console.log(data);
+
+        const newOrder = {
+            name: data.name,
+            email: currentUser?.email,
+            address : {
+                city: data.city,
+                country: data.country,
+                state: data.state,
+                zipcode: data.zipcode,
+            },
+            phone: data.phone,
+            productID: cartItems.map(item => item?._id),
+            totalPrice: totalPrice,
+        }
+        //console.log(newOrder);
+        
+
         try {
             
         } catch (error) {
@@ -58,7 +76,7 @@ const CheckoutPage = () => {
                                         <input
                                             type="text" name="email" id="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                                             disabled
-                                            defaultValue=""
+                                            defaultValue= {currentUser?.email}
                                             placeholder="email@domain.com" />
                                         </div>
                                     <div className="md:col-span-5">
