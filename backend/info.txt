@@ -1,0 +1,9 @@
+
+// npm run start:dev  ---> new start backend app whit NODEMON
+// node index.js   -- start backend app
+
+// https://expressjs.com/  
+// https://www.npmjs.com/package/nodemons
+// cors  --> https://dev.to/speaklouder/how-to-configure-cors-in-nodejs-with-express-11h
+// https://mongoosejs.com/docs/index.html
+
