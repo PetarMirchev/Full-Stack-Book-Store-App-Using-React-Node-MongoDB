@@ -11,8 +11,6 @@ const cors = require('cors');
 // Use CORS middleware
 app.use(cors());
 
-
-//4.19.47
  
 async function main() {
     try {
