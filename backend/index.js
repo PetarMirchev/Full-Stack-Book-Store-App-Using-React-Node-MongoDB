@@ -5,11 +5,31 @@ const port = 3001; // process.env.PORT || 3001
 
 const mongoose = require('mongoose');
 require('dotenv').config();
-
-//Import the cors module in your Express
+// Import the cors module in your Express
 const cors = require('cors');
+
+
+
+
+
+
+
 // Use CORS middleware
 app.use(cors());
+// app.use(cors({
+//   origin: ['http://localhost:5173', 'https://book-app-frontend.com'],
+//   credentials: true
+// }))
+
+
+// middlewares
+app.use(express.json());
+
+
+// routes
+const bookRoutes = require("./src/books/book.route");
+app.use("/api/books", bookRoutes);
+
 
  
 async function main() {
