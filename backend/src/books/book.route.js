@@ -3,6 +3,7 @@ const Book = require('./book.model');
 const router = express.Router();
 
 //post a book / add new
+//app.use("/api/books", bookRoutes === /create-book);
 router.post("/create-book", async (req, res) => {
     console.log(req.body);
     try {
@@ -14,6 +15,9 @@ router.post("/create-book", async (req, res) => {
         res.status(500).send({message: "Failed to create"});
     }
 });
+
+
+// get all books
 
 
 

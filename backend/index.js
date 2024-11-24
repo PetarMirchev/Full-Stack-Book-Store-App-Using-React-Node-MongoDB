@@ -32,16 +32,29 @@ app.use("/api/books", bookRoutes);
 
 
  
-async function main() {
+const ConnectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_DB_KEY);
-        //await mongoose.connect('mongodb://127.0.0.1:27017/test');
+        //await mongoose.connect(process.env.MONGO_DB_KEY);
+        await mongoose.connect('mongodb://127.0.0.1:27017/test');
         console.log("MongoDB acc & pass OK!");
     } catch (error) {
-        console.log(error)
+        console.log(error);
+        
         throw error;
     }   
   }
+ConnectDB();
+
+
+mongoose.connection.on("connected", () => {
+  console.log("mongoDB connected!");
+});
+mongoose.connection.on('error', err => {
+  logError(err);
+}); 
+mongoose.connection.on("disconnect", () => {
+  console.log("ERROR connect or reconnect to MongoDB!");
+});
    
 
 app.listen(port, () => {
