@@ -1,24 +1,19 @@
 const express = require('express');
 const Book = require('./book.model');
+const { postABook, getAllBooks, getSingleBook, updateBook, deleteBook } = require('./book.controller');
 const router = express.Router();
 
-//post a book / add new
-//app.use("/api/books", bookRoutes === /create-book);
-router.post("/create-book", async (req, res) => {
-    console.log(req.body);
-    try {
-        const newBook = await Book({...req.body});
-        await newBook.save(); // mongo save
-        res.status(200).send({message: "create successfully", book: newBook});
-    } catch (error) {
-        console.error("Error on creating item", error);
-        res.status(500).send({message: "Failed to create"});
-    }
-});
+
+//! frontend => backend server => controller => book schema => database => send data to server => back to frontend
 
 
-// get all books
+//post a book / add new  ---- http://localhost:3001/api/books/create-book
+//app.use("/api/books", bookRoutes === /create-book);  // in index.js
+router.post("/create-book", postABook);
 
+
+// get all books  -- http://localhost:3001/api/books/
+router.get("/", getAllBooks);
 
 
 module.exports = router;
