@@ -14,12 +14,12 @@ const cors = require('cors');
 
 
 
-// Use CORS middleware
-app.use(cors());
-// app.use(cors({
-//   origin: ['http://localhost:5173', 'https://book-app-frontend.com'],
-//   credentials: true
-// }))
+// Use CORS middleware -- fix error
+// app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://book-app-frontend.com'],
+  credentials: true
+}))
 
 
 // middlewares

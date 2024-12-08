@@ -11,6 +11,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 
 
 
@@ -18,16 +19,19 @@ const categories = ["Choose a genre", "Business", "Fiction", "Horror", "Adventur
 
 const TopSellers = () => {
 
-  const [books, setBooks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Choose a genre");
-
-  useEffect(() => {
-    fetch("books.json")
-    .then( res => res.json())
-    .then((data) => setBooks(data))
-    .catch((err) => console.log(err))
-  }, []);
+  
+  const {data: books = []} = useFetchAllBooksQuery();
   // console.log(books);
+  
+  // const [books, setBooks] = useState([]);
+  // useEffect(() => {
+  //   fetch("books.json")
+  //   .then( res => res.json())
+  //   .then((data) => setBooks(data))
+  //   .catch((err) => console.log(err))
+  // }, []);
+  // // console.log(books);
   
   //if "Choose a genre" is selected return all, else filter by selected category
   const filteredBooks = selectedCategory === "Choose a genre" ? books : books.filter(book => book.category === selectedCategory.toLowerCase())
