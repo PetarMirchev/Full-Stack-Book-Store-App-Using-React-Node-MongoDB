@@ -32,3 +32,4 @@ export default App
 // https://www.react-hook-form.com/  --> form lib  
 // https://redux-toolkit.js.org/introduction/getting-started -- state
 // https://sweetalert2.github.io/#download   -- alert UI lib for show pop-up messages
+// npm install firebase -- for google login
