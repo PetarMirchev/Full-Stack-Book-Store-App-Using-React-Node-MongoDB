@@ -9,7 +9,7 @@ export const useAuth = () => {
 };
 
 
-// authProvider
+// authProvider -- firebase
 export const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
