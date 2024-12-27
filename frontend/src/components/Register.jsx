@@ -31,10 +31,10 @@ const Register = () => {
     try {
         await signInWithGoogle();
         alert("Login successful!");
-        navigate("/")
+        navigate("/");
     } catch (error) {
-        alert("Google sign in failed!") 
-        console.error(error)
+        alert("Google sign is failed!") 
+        console.error(error);
     }
   };
 

@@ -23,18 +23,18 @@ const Login = () => {
       setMassage("Invalid email or password");
       console.error(error);
     }
-  }
+  };
 
   const handleGoogleSignIn = async () => {
     try {
         await signInWithGoogle();
         alert("Login successful!");
-        navigate("/")
+        navigate("/");
     } catch (error) {
-        alert("Google sign in failed!") 
+        alert("Google sign is failed!") 
         console.error(error);
     }
-  }
+  };
 
 
   return (
